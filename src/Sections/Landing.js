@@ -22,8 +22,7 @@ const Wrapper = styled.div`
 padding: 5%;
 `;
 
-const Title = styled.div`
-    font-weight: 1.4em;
+const Title = styled.h2`
 `;
 
 const Description = styled.div`
@@ -34,8 +33,6 @@ margin: 0 2%;
 padding: 3%;
 font-size: 1.1em;
 background: rgba(0,0,0, 0.8);
-
-
 `;
 
 const Image = styled.img`

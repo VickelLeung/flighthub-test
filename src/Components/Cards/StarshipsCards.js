@@ -61,5 +61,5 @@ export {StarshipsCards};
 const CardItem = styled(Card)`
 text-align:center;
 flex: 0 0 33.333333%;
-
+margin: 0.1%;
 `;

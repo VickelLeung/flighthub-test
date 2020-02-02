@@ -1,16 +1,12 @@
 import React, {Component} from "react";
 import styled from "styled-components";
 import axios from "axios";
-import TextField from '@material-ui/core/TextField';
-import Button from '@material-ui/core/Button';
-
 import {PersonCards} from "../Components/Cards/PersonCards"
 import {Search} from "../Components/Search";
 
 class People extends Component{
 state = {
-    originalCard :[],
-    renderCard : []
+    originalCard :[]
 }
 
 componentDidMount =()=>{
@@ -19,7 +15,6 @@ componentDidMount =()=>{
     .then((res)=> { 
         console.log("res: "+ res.data.results[2])
         this.setState({originalCard: res.data.results})});
-    
 }
 
    render(){
@@ -56,6 +51,8 @@ padding: 5%;
 const PersonContainer = styled.div`
 display:flex;
 flex-wrap: wrap;
+justify-content: center;
+align-items: center;
 `;
 
 const Separator = styled.div`

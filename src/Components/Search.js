@@ -15,14 +15,16 @@ class Search extends Component{
         axios.get("https://swapi.co/api/people/?search="+ this.state.searchInput)
         .then((res)=> { 
           console.log("res: "+ res.data.results[0])
-          this.setState({searchData: res.data.results, isDisplay: true})});
+          this.setState({searchData: res.data.results, isDisplay: true, isGood: true })})
+          .catch(()=>{this.setState({isGood:false})})
+          ;
       }
-
-   
     render(){    
     
     const {searchData} = this.state;
     
+    let displayError = <p>Sorry the person you searched does not exist, please try again.</p>
+
     return(<div>
             <SubTitle>Search a person through our database</SubTitle>
             <SearchContainer>
@@ -32,22 +34,24 @@ class Search extends Component{
                 </Button>
             </SearchContainer>
             
-    {this.state.isDisplay ? <ResultContainer>
-            <h3>Here is the result for the person found: </h3>
-            
-            <PersonCards name={searchData[0].name} height={searchData[0].height} mass={searchData[0].mass} 
-            hairColor={searchData[0].hair_color} skinColor={searchData[0].skin_color} eyeColor={searchData[0].eye_color}
-            birthYear={searchData[0].birth_year} gender={searchData[0].gender} 
-            /> 
-        </ResultContainer>
-        
-        :null}
+    {this.state.isDisplay ? 
+            this.state.searchData[0] !== undefined ? 
+            <ResultContainer>
+                <h3>Here is the result for the person found: </h3>
+                
+                <PersonCards name={searchData[0].name} height={searchData[0].height} mass={searchData[0].mass} 
+                hairColor={searchData[0].hair_color} skinColor={searchData[0].skin_color} eyeColor={searchData[0].eye_color}
+                birthYear={searchData[0].birth_year} gender={searchData[0].gender} 
+                /> 
+            </ResultContainer>
+            : displayError
+        :null
+    }
 
         </div>
     )
     }
 }
-// const {name, height, mass, hairColor, skinColor, eyeColor, birthYear, gender} = props;
 
 export {Search}
 

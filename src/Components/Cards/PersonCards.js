@@ -43,7 +43,6 @@ export {PersonCards};
 
 const CardItem = styled(Card)`
 text-align:center;
-width:100%;
 flex: 0 0 33%;
-
+margin: 0.1%;
 `;

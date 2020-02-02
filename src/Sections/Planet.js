@@ -6,8 +6,7 @@ import {PlanetCards} from "../Components/Cards/PlanetCards"
 
 class Planet extends Component{
 state = {
-    originalCard :[],
-    renderCard : []
+    originalCard :[]
 }
 
 componentDidMount =()=>{
@@ -48,4 +47,6 @@ padding: 5%;
 const PlanetContainer = styled.div`
 display:flex;
 flex-wrap: wrap;
+justify-content: center;
+align-items: center;
 `;

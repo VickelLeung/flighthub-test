@@ -6,8 +6,7 @@ import {StarshipsCards} from "../Components/Cards/StarshipsCards";
 
 class Starship extends Component{
 state = {
-    originalCard :[],
-    renderCard : []
+    originalCard :[]
 }
 
 componentDidMount =()=>{
@@ -25,8 +24,12 @@ componentDidMount =()=>{
 
         <StarshipContainer>
             {this.state.originalCard.map((val)=>{
-                return <StarshipsCards  name={val.name} height={val.height} mass={val.mass} 
-                hairColor={val.hair_color} skinColor={val.skin_color} eyeColor={val.eye_color} birthYear={val.birth_year} gender={val.gender}  />
+                return <StarshipsCards  name={val.name} model={val.model} manufacturer={val.manufacturer} 
+                cost_in_credits={val.cost_in_credits} length={val.length} max_atmosphering_speed={val.max_atmosphering_speed} 
+                crew={val.crew} passengers={val.passengers} cargo_capacity={val.cargo_capacity} 
+                consumables={val.consumables} hyperdrive_rating={val.hyperdrive_rating} 
+                MGLT={val.MGLT} starship_class={val.starship_class}
+                />
             })}  
         </StarshipContainer>
         </Wrapper>
@@ -48,4 +51,6 @@ padding: 5%;
 const StarshipContainer = styled.div`
 display:flex;
 flex-wrap: wrap;
+justify-content: center;
+align-items: center;
 `;
